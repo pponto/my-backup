@@ -1,0 +1,285 @@
+## Variáveis
+set $workspace1 1 
+set $workspace2 2 
+set $workspace3 3 
+set $workspace4 4 
+set $workspace5 5 
+set $workspace6 6 
+set $workspace7 7 
+set $workspace8 8 
+set $workspace9 "9"
+
+#set $monitor1 DVI-D-0
+#set $monitor2 HDMI-A-0
+
+## Configuração Geral
+set $mod Mod4
+font pango: Fira Code 8
+#floating_modifier $mod
+#new_window pixel 2
+#new_float normal
+#hide_edge_borders none
+#focus_follows_mouse yes
+#for_window [urgent=latest] focus
+
+## Cores das Janelas
+#                         border  background text indicator
+client.focused            #e65c00 #222222 #ffffff #e65c00
+client.focused_inactive   #888888 #333333 #888888
+client.unfocused          #444444 #333333 #444444
+client.urgent		      #0F0F0F #BC9B54 #E5E5E5 #0F0F0F
+client.placeholder        #444444 #333333 #444444
+client.background         #333333
+
+## Barra
+# hide/unhide i3status bar
+bindsym $mod+Shift+m bar mode toggle
+bar {
+        status_command i3blocks
+	#tray_output             None
+        #mode                    invisible
+        separator_symbol        "|"
+        #workspace_buttons       yes
+        #strip_workspace_numbers yes
+	#font pango: FontAwesome, Fira Code 9
+        #position                top
+
+    colors {
+            background  #222222
+            statusline  #ffffff
+            separator   #e65c00rr
+            # class             border  backgr. text
+            focused_workspace   #e65c00 #222222 #ffffff
+            active_workspace    #222222 #222222 #ffffff
+            inactive_workspace  #888888 #333333 #888888
+            urgent_workspace    #0F0F0F #BC9B54 #E5E5E5
+	}
+}
+
+## Comandos
+# Teclas de Reinicio
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+# Teclas de Programas
+bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+b exec telegram-desktop
+bindsym $mod+f exec firefox
+bindsym $mod+t exec thunar
+bindsym $mod+g exec geany
+bindsym $mod+c exec vscodium
+# Keyboard
+bindsym $mod+Shift+w mode $keyboard
+set $keyboard "Layout (U)s or (B)r"
+mode $keyboard {
+
+	bindsym u exec setxkbmap us; exec notify-send 'Layout: us', mode "default"
+	bindsym b exec setxkbmap us -variant intl; exec notify-send 'Layout: us (intl)', mode "default"
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+# Screenshot
+bindsym --release Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png -m -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png -u -e 'xclip -selection c -t image/png < $f'
+bindsym --release $mod+Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png -s -e 'xclip -selection c -t image/png < $f'
+#bindsym Print exec xfce4-screenshooter --fullscreen
+#bindsym Shift+Print exec xfce4-screenshooter --region
+#bindsym Alt+Print exec xfce4-screenshooter --window
+#bindsym $mod+Print exec xfce4-screenshooter
+
+## Menus
+bindsym $mod+d exec rofi -show drun
+# task switcher
+bindsym $mod+Tab exec rofi -show window -kb-mode-next Alt+Tab -kb-mode-previous Alt+Control+Tab
+# launcher tools
+bindsym $mod+Shift+t mode $tools_menu
+set $tools_menu "Htop Ping Sensors Arandr Lxappearance Pavucontrol"
+mode $tools_menu {
+
+	bindsym h exec xfce4-terminal -e "htop", mode "default"
+	bindsym p exec xfce4-terminal -e "ping 8.8.8.8", mode "default"
+	bindsym s exec xfce4-terminal -e "watch -n1 sensors", mode "default"
+	bindsym a exec arandr, mode "default"
+	bindsym l exec lxappearance, mode "default"
+	bindsym p exec pavucontrol, mode "default"
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+# launcher programs
+bindsym $mod+Shift+s mode $programs_menu
+set $programs_menu "Vscodium Firefox Thunar Geany Color tElegram"
+mode $programs_menu {
+
+	bindsym v exec vscodium, mode "default"
+	bindsym f exec firefox, mode "default"
+	bindsym t exec thunar, mode "default"
+	bindsym g exec geany, mode "default"
+	bindsym c exec yad --color --gtk-palette, mode "default"
+	bindsym e exec telegram-desktop, mode "default"
+	
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+# exit i3
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e mode $power_menu
+set $power_menu "(E)xit  | (S)uspender  | (R)einiciar  | (Shift+D)esligar "
+mode $power_menu {
+    #bindsym b exec , mode "default" (B)loquear  |
+    bindsym s exec systemctl suspend, mode "default"
+    #bindsym l exec , mode "default" | (L)ogout 
+    bindsym e exec i3-msg exit, mode "default"
+    #bindsym h exec , mode "default" (H)ibernar  |
+    bindsym r exec systemctl reboot, mode "default"
+    bindsym Shift+d exec systemctl poweroff, mode "default"
+
+    # exit system mode
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+# Morc Menu
+bindsym $mod+z exec ~/.scripts/morc_menu
+
+## Teclas de Janela
+bindsym $mod+Shift+q kill
+
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+bindsym $mod+v split v;exec notify-send 'Tile Vertically'
+bindsym $mod+h split h;exec notify-send 'Tile Horizontally'
+bindsym $mod+q split toggle
+bindsym $mod+Shift+space floating toggle;exec notify-send 'Mode Floating'
+bindsym $mod+Shift+f fullscreen toggle
+
+bindsym $mod+s layout stacking;exec notify-send 'Mode Stacking'
+bindsym $mod+w layout tabbed;exec notify-send 'Mode Tabbed'
+bindsym $mod+e layout toggle split;exec notify-send 'Mode Toggle Split'
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+# Resize
+bindsym $mod+r mode "Resize  "
+mode "Resize  " {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+	
+	    # Shift bindings for smaller changes
+        bindsym Shift+j resize shrink width 5 px or 5 ppt
+        bindsym Shift+k resize grow height 5 px or 5 ppt
+        bindsym Shift+l resize shrink height 5 px or 5 ppt
+	    bindsym Shift+semicolon resize grow width 5 px or 5 ppt
+
+	    # same bindings, but for the arrow keys
+        bindsym Shift+Left resize shrink width 5 px or 5 ppt
+        bindsym Shift+Down resize grow height 5 px or 5 ppt
+        bindsym Shift+Up resize shrink height 5 px or 5 ppt
+	    bindsym Shift+Right resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+## Workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+
+## Teclas Multimedia - Redragon
+bindsym XF86Tools exec arandr
+bindsym XF86AudioRaiseVolume exec ~/.scripts/volume up && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec ~/.scripts/volume down && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioMute exec ~/.scripts/volume toggle && pkill -RTMIN+10
+#bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ unmute && pkill -RTMIN+10 i3blocks && exec notify-send '5%    '
+#bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- unmute && pkill -RTMIN+10 i3blocks && exec notify-send '5%    '
+#bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
+#bindsym XF86AudioStop exec space
+#bindsym XF86AudioPrev exec left
+#bindsym XF86AudioPlay exec playerctl 
+#bindsym XF86AudioNext exec right
+bindsym XF86Mail exec orage
+bindsym XF86HomePage exec firefox
+bindsym XF86Calculator exec mate-calc
+bindsym XF86Search exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi -modi combi"
+
+## Executados ao Iniciar
+exec --no-startup-id nitrogen --restore
+#exec --no-startup-id xfsettingsd
+exec dunst --config ~/.config/dunst/dunstrc &
+#exec --no-startup-id xfce4-power-manager
+#exec --no-startup-id compton --config ~/.config/compton/compton.conf
+exec --no-startup-id redshift
+exec --no-startup-id xset s 180 && xset dpms 0 0 360
+
+## Floating
+for_window [class="Arandr"] floating enable border pixel 1
+for_window [title="Synaptic"] floating enable border pixel 1
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="pick"] floating enable border pixel 1
+for_window [class="gufw"] floating enable border pixel 1
+for_window [class="clipit"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="XCalc"] floating enable border normal
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Pavucontrol"] floating enable
+for_window [class="skypeforlinux"] floating enable border normal
+for_window [class="libreoffice"] floating enable
+#for_window [class="Firefox" instance="Browser"] floating enable
+for_window [class="Firefox" instance="Dialog"] floating enable
+for_window [class="Firefox" instance="Extension"] floating enable
+for_window [class="Firefox" instance="Abp"] floating enable
+for_window [class="Firefox" instance="Febe"] floating enable
+#for_window [class="Gimp"] floating enable
+for_window [class="vlc"] floating enable border normal
+for_window [class="Yad"] floating enable
+for_window [class="MPlayer"] floating enable border normal
