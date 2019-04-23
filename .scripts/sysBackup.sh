@@ -23,6 +23,7 @@ FROM_DIR8=~/.config/i3
 FROM_DIR9=~/.config/i3blocks
 FROM_DIR10=~/.config/morc_menu
 FROM_DIR11=~/.config/rofi
+FROM_DIR12=~/.config/redshift.conf
 
 FINAL_DIR=~/Documents/my-backup
 
@@ -42,6 +43,7 @@ rsync $RSYNC_SETTINGS $FROM_DIR8 $FINAL_DIR/.config
 rsync $RSYNC_SETTINGS $FROM_DIR9 $FINAL_DIR/.config
 rsync $RSYNC_SETTINGS $FROM_DIR10 $FINAL_DIR/.config
 rsync $RSYNC_SETTINGS $FROM_DIR11 $FINAL_DIR/.config
+rsync $RSYNC_SETTINGS $FROM_DIR12 $FINAL_DIR/.config
 
 echo '[***] Seending to git.'
 

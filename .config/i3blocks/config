@@ -1,10 +1,10 @@
 # i3blocks config file
-command=/home/pponto/.scripts/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+command=/home/pponto/.scripts/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
 [weather]
-command=~/.scripts/i3blocks/weather/weather "SBRF" "1"
+command=~/.scripts/i3blocks/weather "SBRF" "1"
 interval=300
 
 [volume]
@@ -34,12 +34,6 @@ interval=5
 min_width=CPU 99%
 #separator=false
 
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-#[mediaplayer]
-#instance=spotify
-#interval=5
-#signal=10
-
 [temperature]
 label=
 interval=5
@@ -56,10 +50,6 @@ interval=5
 [time]
 command=date '+%a %d.%m.%y %H:%M'
 interval=5
-
-#[calendar]
-#interval=5
-#label=
 
 [key_layout]
 #command=$SCRIPT_DIR/key_layout
