@@ -42,12 +42,21 @@ echo $QUALITY% # full text
 echo $QUALITY% # short text
 
 # color
-if [[ $QUALITY -ge 80 ]]; then
-    echo "#e65c00"
-elif [[ $QUALITY -ge 60 ]]; then
-    echo "#ffffff"
-elif [[ $QUALITY -ge 40 ]]; then
-    echo #9354153"
+#if [[ $QUALITY -ge 80 ]]; then
+#    echo "#e65c00"
+#elif [[ $QUALITY -ge 60 ]]; then
+#    echo "#ffffff"
+#elif [[ $QUALITY -ge 40 ]]; then
+#    echo "#ffffff"
+#else
+#    echo "#BC9B54"
+#fi
+
+# Ping is on?
+ping -q -c5 1.1.1.1 > /dev/null
+ 
+if [ $? -eq 0 ]; then
+	echo "#e65c00"
 else
-    echo "#BC9B54"
+	echo "#BC9B54"
 fi

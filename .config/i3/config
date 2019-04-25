@@ -116,7 +116,7 @@ mode $programs_menu {
 	bindsym f exec firefox, mode "default"
 	bindsym t exec thunar, mode "default"
 	bindsym g exec geany, mode "default"
-	bindsym c exec yad --color --gtk-palette, mode "default"
+#	bindsym c exec yad --color --gtk-palette, mode "default"
 	bindsym e exec telegram-desktop, mode "default"
 	
 	bindsym Return mode "default"
