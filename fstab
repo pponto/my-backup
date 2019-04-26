@@ -1,7 +1,0 @@
-UUID=6d30fda2-65f9-4711-b378-bb49b427dd2f / btrfs defaults 0 0
-UUID=c4fa17c1-7ca7-4115-b944-00e588f0496e /home xfs defaults 0 0
-UUID=CA78-04E2 /boot/efi vfat defaults 0 0
-UUID=808EAE098EADF834 /media/backup ntfs-3g defaults,umask=000,fmask=137,dmask=027,uid=1000,gid=1000,windows_names 0 0
-#UUID=EE8870DF8870A82B /media/windows ntfs rw,auto,user,fmask=133,dmask=022,uid=1000,gid=1000 0 0
-UUID=EE8870DF8870A82B /media/windows ntfs-3g defaults,umask=000,fmask=137,dmask=027,uid=1000,gid=1000,windows_names 0 0
-/home/pponto/.swapfile  none  swap  sw 0 0
