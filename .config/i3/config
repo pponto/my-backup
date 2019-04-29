@@ -63,6 +63,7 @@ bindsym $mod+Shift+r restart
 
 # Teclas de Programas
 bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Shift+Return exec xfce4-terminal --drop-down
 bindsym $mod+b exec telegram-desktop
 bindsym $mod+f exec firefox
 bindsym $mod+t exec thunar
