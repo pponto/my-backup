@@ -117,7 +117,7 @@ mode $programs_menu {
 	bindsym f exec firefox, mode "default"
 	bindsym t exec thunar, mode "default"
 	bindsym g exec geany, mode "default"
-#	bindsym c exec yad --color --gtk-palette, mode "default"
+	bindsym c exec flatpak run nl.hjdskes.gcolor3, mode "default"
 	bindsym e exec telegram-desktop, mode "default"
 	
 	bindsym Return mode "default"
@@ -250,17 +250,17 @@ bindsym XF86Calculator exec mate-calc
 bindsym XF86Search exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi -modi combi"
 
 ## Executados ao Iniciar
-exec --no-startup-id compton
+exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id nitrogen --restore
 #exec --no-startup-id xfsettingsd
 exec dunst --config ~/.config/dunst/dunstrc &
 #exec --no-startup-id xfce4-power-manager
-#exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id redshift
 exec --no-startup-id xset s 180 && xset dpms 0 0 360
 
 ## Floating
 for_window [class="Arandr"] floating enable border pixel 1
+for_window [class="Gcolor3"] floating enable border pixel 1
 for_window [title="Synaptic"] floating enable border pixel 1
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="pick"] floating enable border pixel 1
