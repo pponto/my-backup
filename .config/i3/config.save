@@ -47,7 +47,7 @@ bar {
     colors {
             background  #222222
             statusline  #ffffff
-            separator   #e65c00
+            separator   #e65c00rr
             # class             border  backgr. text
             focused_workspace   #e65c00 #222222 #ffffff
             active_workspace    #222222 #222222 #ffffff
@@ -249,8 +249,7 @@ bindsym XF86HomePage exec firefox
 bindsym XF86Calculator exec mate-calc
 bindsym XF86Search exec --no-startup-id "rofi -combi-modi window,drun,ssh -show combi -modi combi"
 
-## Executados ao Iniciar
-exec --no-startup-id compton
+## Executados ao Iniciarexec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
 exec --no-startup-id nitrogen --restore
 #exec --no-startup-id xfsettingsd
 exec dunst --config ~/.config/dunst/dunstrc &

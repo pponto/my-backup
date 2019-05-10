@@ -19,13 +19,15 @@ systemCore=xorg xinit
 
 systemTwm=i3-wm i3blocks rofi dunst libnotify-bin network-manager
 
-systemSupport=xfce4-terminal thunar geany nitrogen redshift htop neofetch curl lm-sensors pavucontrol scrot xclip arandr
+systemSupport=xfce4-terminal thunar geany nitrogen redshift htop neofetch curl lm-sensors pavucontrol scrot xclip arandr compton
 
-systemExtra=ttf-ubuntu-font-family mplayer ristretto xpdf ufw ubuntu-restricted-extras lxappearance xarchiver
+systemExtra=ttf-ubuntu-font-family mplayer ristretto xpdf ufw ubuntu-restricted-extras lxappearance xarchiver thunar-archive-plugin isomaster fonts-font-awesome
+
+########fonts-opensymbol fonts-ubuntu-title fonts-dejavu-extra xfonts-scalable
 
 systemDev=git zsh nodejs
 
-npmInstallGlobal=sudo npm install -g gulp eslint now heroku  
+npmInstallGlobal=sudo npm install -g gulp eslint now heroku nodemon
 
 systemPurge=ttf-mscorefonts-installer gnome-*
 
@@ -73,10 +75,13 @@ cd
 
 sudo mv xorg.conf /etc/X11/
 
+sudo mv pponto /var/spool/cron/crontabs/
+
 sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw status
 
 neofetch
+
 echo "--------- Acabou Miseravi ---------"
