@@ -2,12 +2,12 @@
 set $workspace1 1 
 set $workspace2 2 
 set $workspace3 3 
-set $workspace4 4 
+set $workspace4 4 
 set $workspace5 5 
 set $workspace6 6 
 set $workspace7 7 
-set $workspace8 8 
-set $workspace9 "9"
+set $workspace8 8 
+set $workspace9 9 
 
 #set $monitor1 DVI-D-0
 #set $monitor2 HDMI-A-0
@@ -23,13 +23,13 @@ font pango: Fira Code 8
 #for_window [urgent=latest] focus
 
 ## Cores das Janelas
-#                         border  background text indicator
-client.focused            #e65c00 #222222 #ffffff #e65c00
-client.focused_inactive   #888888 #333333 #888888
-client.unfocused          #444444 #333333 #444444
-client.urgent		      #0F0F0F #BC9B54 #E5E5E5 #0F0F0F
-client.placeholder        #444444 #333333 #444444
-client.background         #333333
+# class                 border  backgr. text    indicator child_border
+client.focused          #214CE3 #F7F7F7 #5C616C #214CE3   
+client.focused_inactive #5C616C #5C616C #D4D4D4    
+client.unfocused        #5C616C #5C616C #D4D4D4   
+client.urgent           #F7F7F7 #214CE3 #F7F7F7
+client.placeholder      #F7F7F7 #F7F7F7 #5C616C 
+client.background       #F7F7F7
 
 ## Barra
 # hide/unhide i3status bar
@@ -43,16 +43,14 @@ bar {
         #strip_workspace_numbers yes
 	#font pango: FontAwesome, Fira Code 9
         #position                top
-
-    colors {
-            background  #222222
-            statusline  #ffffff
-            separator   #e65c00
+colors {
+            background  #F7F7F7
+            statusline  #5C616C
+            separator   #F7F7F7
             # class             border  backgr. text
-            focused_workspace   #e65c00 #222222 #ffffff
-            active_workspace    #222222 #222222 #ffffff
-            inactive_workspace  #888888 #333333 #888888
-            urgent_workspace    #0F0F0F #BC9B54 #E5E5E5
+            focused_workspace   #F7F7F7 #F7F7F7 #5C616C
+            inactive_workspace  #5C616C #5C616C #D4D4D4
+            urgent_workspace    #214CE3 #214CE3 #F7F7F7
 	}
 }
 
@@ -81,9 +79,9 @@ mode $keyboard {
 	bindsym Escape mode "default"
 }
 # Screenshot
-bindsym --release Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png -m -e 'xclip -selection c -t image/png < $f'"
-bindsym --release Shift+Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png -u -e 'xclip -selection c -t image/png < $f'
-bindsym --release $mod+Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png -s -e 'xclip -selection c -t image/png < $f'
+bindsym --release Print exec "scrot ~/pictures/screenshots/%y%m%d%H%m%S.png -m -e 'xclip -selection c -t image/png < $f'"
+bindsym --release Shift+Print exec "scrot ~/pictures/screenshots/%y%m%d%H%m%S.png -u -e 'xclip -selection c -t image/png < $f'
+bindsym --release $mod+Print exec "scrot ~/pictures/screenshots/%y%m%d%H%m%S.png -s -e 'xclip -selection c -t image/png < $f'
 #bindsym Print exec xfce4-screenshooter --fullscreen
 #bindsym Shift+Print exec xfce4-screenshooter --region
 #bindsym Alt+Print exec xfce4-screenshooter --window
@@ -91,6 +89,7 @@ bindsym --release $mod+Print exec "scrot ~/Pictures/screenshots/%y%m%d%H%m%S.png
 
 ## Menus
 bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+d exec rofi -show run
 # task switcher
 bindsym $mod+Tab exec rofi -show window -kb-mode-next Alt+Tab -kb-mode-previous Alt+Control+Tab
 # launcher tools

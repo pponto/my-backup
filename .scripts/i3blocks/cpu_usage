@@ -13,7 +13,7 @@ use Getopt::Long;
 
 # default values
 my $t_warn = $ENV{T_WARN} // 40;
-my $t_crit = $ENV{T_CRIT} // 70;
+my $t_crit = $ENV{T_CRIT} // 80;
 my $cpu_usage = -1;
 my $decimals = $ENV{DECIMALS} // 2;
 my $label = $ENV{LABEL} // "";
@@ -53,10 +53,10 @@ printf "%.${decimals}f%%\n", $cpu_usage;
 
 # Print color, if needed
 if ($cpu_usage >= $t_crit) {
-    print "#9354153\n";
+    print "#214CE3\n";
     exit 33;
 } elsif ($cpu_usage >= $t_warn) {
-    print "#ffffff\n";
+    print "#5C616C\n";
 }
 
 exit 0;

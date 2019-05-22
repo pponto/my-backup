@@ -8,15 +8,13 @@ command=~/.scripts/i3blocks/weather "SBRF" "1"
 interval=300
 
 [volume]
-label=♪
+label=
 interval=once
 signal=10
-color=#e65c00
 
 [memory]
-label=
+label=
 interval=10
-separator=true
 #echo=printf("%.f%%\n", pct)
 
 [disk]
@@ -25,7 +23,7 @@ interval=60
 separator=false
 
 [disk2]
-label=/
+label=
 interval=60
 
 [cpu_usage]
@@ -52,6 +50,4 @@ command=date '+%a %d.%m.%y %H:%M'
 interval=5
 
 [key_layout]
-#command=$SCRIPT_DIR/key_layout
-#label=Layout
-interval=10
+interval=5

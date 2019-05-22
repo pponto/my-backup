@@ -56,7 +56,7 @@ echo $QUALITY% # short text
 ping -q -c5 1.1.1.1 > /dev/null
  
 if [ $? -eq 0 ]; then
-	echo "#e65c00"
+	echo "#5C616C"
 else
-	echo "#BC9B54"
+	echo "#D4D4D4"
 fi

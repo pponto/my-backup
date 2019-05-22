@@ -1,0 +1,57 @@
+# i3blocks config file
+command=/home/pponto/.scripts/i3blocks/$BLOCK_NAME
+separator_block_width=15
+markup=none
+
+[weather]
+command=~/.scripts/i3blocks/weather "SBRF" "1"
+nterval=300
+
+
+[volume]
+label=♪
+interval=once
+signal=10
+
+[memory]
+label=
+interval=10
+separator=true
+#echo=printf("%.f%%\n", pct)
+
+[disk]
+label=
+interval=60
+separator=false
+
+[disk2]
+label=
+interval=60
+
+[cpu_usage]
+label=
+interval=5
+min_width=CPU 99%
+#separator=false
+
+[temperature]
+label=
+interval=5
+separator=false
+
+[temperaturecpu]
+label=
+interval=5
+
+[wifi]
+label=
+interval=5
+
+[time]
+command=date '+%a %d.%m.%y %H:%M'
+interval=5
+
+[key_layout]
+#command=$SCRIPT_DIR/key_layout
+#label=Layout
+interval=10
