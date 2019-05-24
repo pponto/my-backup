@@ -56,7 +56,7 @@ if ($cpu_usage >= $t_crit) {
     print "#214CE3\n";
     exit 33;
 } elsif ($cpu_usage >= $t_warn) {
-    print "#5C616C\n";
+    print "#F7F7F7\n";
 }
 
 exit 0;

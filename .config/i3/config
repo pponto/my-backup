@@ -44,12 +44,14 @@ bar {
 	#font pango: FontAwesome, Fira Code 9
         #position                top
 colors {
-            background  #F7F7F7
-            statusline  #5C616C
-            separator   #F7F7F7
+            background  #5C616C
+            statusline  #F7F7F7
+            separator   #5C616C
             # class             border  backgr. text
             focused_workspace   #F7F7F7 #F7F7F7 #5C616C
+            active_workspace    #5C616C #5C616C #D4D4D4
             inactive_workspace  #5C616C #5C616C #D4D4D4
+            binding_mode        #214CE3 #214CE3 #F7F7F7
             urgent_workspace    #214CE3 #214CE3 #F7F7F7
 	}
 }
