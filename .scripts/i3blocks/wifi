@@ -28,7 +28,7 @@ fi
 if [[ "$(cat /sys/class/net/$INTERFACE/operstate)" = 'down' ]]; then
     echo "down"
     echo "down"
-    echo "#214CE3"
+    echo "#D4D4D4"
     exit
 fi
 

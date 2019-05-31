@@ -25,7 +25,7 @@ FROM_DIR10=~/.config/morc_menu
 FROM_DIR11=~/.config/rofi
 FROM_DIR12=~/.config/redshift.conf
 
-FINAL_DIR=~/documents/my-backup
+FINAL_DIR=~/my-backup
 
 ########## Backup Process ##########
 # Need to uncomment or add more lines if you use multiple folders
@@ -47,7 +47,7 @@ rsync $RSYNC_SETTINGS $FROM_DIR12 $FINAL_DIR/.config
 
 echo '[***] Seending to git.'
 
-cd /home/pponto/documents/my-backup
+cd /home/pponto/my-backup
 
 NOW=$(date +"%m_%d_%Y")
 git add .

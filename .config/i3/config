@@ -24,7 +24,8 @@ font pango: Fira Code 8
 
 ## Cores das Janelas
 # class                 border  backgr. text    indicator child_border
-client.focused          #214CE3 #F7F7F7 #5C616C #214CE3   
+#client.focused          #214CE3 #F7F7F7 #5C616C #214CE3
+client.focused          #F7F7F7 #214CE3 #F7F7F7 #214CE3  #F7F7F7
 client.focused_inactive #5C616C #5C616C #D4D4D4    
 client.unfocused        #5C616C #5C616C #D4D4D4   
 client.urgent           #F7F7F7 #214CE3 #F7F7F7
@@ -69,6 +70,7 @@ bindsym $mod+f exec firefox
 bindsym $mod+t exec thunar
 bindsym $mod+g exec geany
 bindsym $mod+c exec vscodium
+bindsym $mod+Shift+t exec /home/pponto/.scripts/todofi.sh
 # Keyboard
 bindsym $mod+Shift+w mode $keyboard
 set $keyboard "Layout (U)s or (B)r"
@@ -95,7 +97,7 @@ bindsym $mod+Shift+d exec rofi -show run
 # task switcher
 bindsym $mod+Tab exec rofi -show window -kb-mode-next Alt+Tab -kb-mode-previous Alt+Control+Tab
 # launcher tools
-bindsym $mod+Shift+t mode $tools_menu
+#bindsym $mod+Shift+t mode $tools_menu
 set $tools_menu "Htop Ping Sensors Arandr Lxappearance Pavucontrol"
 mode $tools_menu {
 
@@ -110,7 +112,7 @@ mode $tools_menu {
 	bindsym Escape mode "default"
 }
 # launcher programs
-bindsym $mod+Shift+s mode $programs_menu
+#bindsym $mod+Shift+s mode $programs_menu
 set $programs_menu "Vscodium Firefox Thunar Geany Color tElegram"
 mode $programs_menu {
 
@@ -260,12 +262,14 @@ exec --no-startup-id redshift
 exec --no-startup-id xset s 180 && xset dpms 0 0 360
 
 ## Floating
-for_window [class="Arandr"] floating enable border pixel 1
-for_window [class="Gcolor3"] floating enable border pixel 1
-for_window [title="Synaptic"] floating enable border pixel 1
-for_window [title="alsamixer"] floating enable border pixel 1
-for_window [class="pick"] floating enable border pixel 1
-for_window [class="gufw"] floating enable border pixel 1
+for_window [class="Arandr"] floating enable border normal
+for_window [class="Ristretto"] floating enable border normal
+for_window [class="Xarchiver"] floating enable border normal
+for_window [class="Gcolor3"] floating enable border normal
+for_window [title="Synaptic"] floating enable border normal
+for_window [title="alsamixer"] floating enable border normal
+for_window [class="pick"] floating enable border normal
+for_window [class="gufw"] floating enable border normal
 for_window [class="clipit"] floating enable
 for_window [title="File Transfer*"] floating enable
 for_window [class="XCalc"] floating enable border normal
