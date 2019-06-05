@@ -260,6 +260,7 @@ exec dunst --config ~/.config/dunst/dunstrc &
 #exec --no-startup-id xfce4-power-manager
 exec --no-startup-id redshift
 exec --no-startup-id xset s 180 && xset dpms 0 0 360
+exec --no-startup-id nmcli con up id 'virus_2.4'
 
 ## Floating
 for_window [class="Arandr"] floating enable border normal
