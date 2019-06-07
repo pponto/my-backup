@@ -96,6 +96,21 @@ bindsym $mod+d exec rofi -show drun
 bindsym $mod+Shift+d exec rofi -show run
 # task switcher
 bindsym $mod+Tab exec rofi -show window -kb-mode-next Alt+Tab -kb-mode-previous Alt+Control+Tab
+# edit files
+bindsym $mod+Shift+s mode $edit_menu
+set $edit_menu "(I)3config i3(B)locks (D)unst (R)ofi red(S)hift (C)ompton"
+mode $edit_menu {
+
+	bindsym i exec mousepad ~/.config/i3/config, mode "default"
+	bindsym b exec mousepad ~/.config/i3blocks/config, mode "default"
+	bindsym c exec mousepad ~/.config/compton/compton.conf, mode "default"
+	bindsym d exec mousepad ~/.config/dunst/dunstrc, mode "default"
+	bindsym r exec mousepad ~/.config/rofi/config, mode "default"
+	bindsym s exec mousepad ~/.config/redshift.conf, mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
 # launcher tools
 #bindsym $mod+Shift+t mode $tools_menu
 set $tools_menu "Htop Ping Sensors Arandr Lxappearance Pavucontrol"
