@@ -98,7 +98,7 @@ bindsym $mod+Shift+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window -kb-mode-next Alt+Tab -kb-mode-previous Alt+Control+Tab
 # edit files
 bindsym $mod+Shift+s mode $edit_menu
-set $edit_menu "(I)3config i3(B)locks (D)unst (R)ofi red(S)hift (C)ompton"
+set $edit_menu "(I)3config i3(B)locks (D)unst (R)ofi red(S)hift (C)ompton sysBack(U)p sysIns(T)all"
 mode $edit_menu {
 
 	bindsym i exec mousepad ~/.config/i3/config, mode "default"
@@ -107,6 +107,8 @@ mode $edit_menu {
 	bindsym d exec mousepad ~/.config/dunst/dunstrc, mode "default"
 	bindsym r exec mousepad ~/.config/rofi/config, mode "default"
 	bindsym s exec mousepad ~/.config/redshift.conf, mode "default"
+	bindsym u exec mousepad ~/.scripts/sysBackup.sh, mode "default"
+	bindsym t exec mousepad ~/.scripts/sysInstall.sh, mode "default"
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
