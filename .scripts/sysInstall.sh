@@ -19,7 +19,7 @@ systemCore=xorg xinit
 
 systemTwm=i3-wm i3blocks rofi dunst libnotify-bin network-manager
 
-systemSupport=xfce4-terminal thunar geany nitrogen redshift htop neofetch curl lm-sensors pavucontrol scrot xclip arandr compton
+systemSupport=xfce4-terminal thunar geany nitrogen redshift htop neofetch curl lm-sensors pavucontrol scrot xclip arandr compton ffmpeg i3lock
 
 systemExtra=ttf-ubuntu-font-family mplayer ristretto xpdf ufw ubuntu-restricted-extras lxappearance xarchiver thunar-archive-plugin isomaster fonts-font-awesome
 

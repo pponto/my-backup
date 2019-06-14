@@ -36,7 +36,6 @@ if ($click == 1) {
         $current_tz = $tzmap{$current_tz};
     }
 }
-
 # How each timezone will be displayed in the bar.
 my %display_map;
 for (my $i=0; $i < scalar(@tz_list); $i++) {

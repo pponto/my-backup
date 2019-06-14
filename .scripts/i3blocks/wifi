@@ -60,3 +60,7 @@ if [ $? -eq 0 ]; then
 else
 	echo "#D4D4D4"
 fi
+
+case $BLOCK_BUTTON in
+  3) xfce4-terminal -e "ping 1.1.1.1" ;;  # right click, ping 1.1.1.1
+esac

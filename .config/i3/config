@@ -146,10 +146,10 @@ mode $programs_menu {
 # exit i3
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e mode $power_menu
-set $power_menu "(E)xit  | (S)uspender  | (R)einiciar  | (Shift+D)esligar "
+set $power_menu "(B)loquear  | (E)xit  | (S)uspender  | (R)einiciar  | (Shift+D)esligar "
 mode $power_menu {
-    #bindsym b exec , mode "default" (B)loquear  |
-    bindsym s exec systemctl suspend, mode "default"
+    bindsym b exec ~/.scripts/lock.sh, mode "default"
+    bindsym s exec ~/.scripts/lock.sh && exec systemctl suspend, mode "default"
     #bindsym l exec , mode "default" | (L)ogout 
     bindsym e exec i3-msg exit, mode "default"
     #bindsym h exec , mode "default" (H)ibernar  |

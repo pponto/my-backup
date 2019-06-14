@@ -29,3 +29,8 @@ then
 else
 	echo us
 fi
+
+case $BLOCK_BUTTON in
+  1) setxkbmap us -variant intl; exec notify-send 'Layout: us (intl)' ;; # left click, pt-br
+  3) setxkbmap us; exec notify-send 'Layout: us' ;; # right click, us
+esac
