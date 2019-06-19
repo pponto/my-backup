@@ -27,7 +27,7 @@ systemExtra=ttf-ubuntu-font-family mplayer ristretto xpdf ufw ubuntu-restricted-
 
 systemDev=git zsh nodejs
 
-npmInstallGlobal=sudo npm install -g gulp eslint now heroku nodemon
+npmInstallGlobal=sudo npm install -g gulp eslint now heroku nodemon mocha istanbul
 
 systemPurge=ttf-mscorefonts-installer gnome-*
 
